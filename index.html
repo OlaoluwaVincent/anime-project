@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Anime</title>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.filter__section {
+				display: none;
+			}
+			ul {
+				display: flex;
+				gap: 20px;
+				list-style: none;
+				width: 100%;
+				background-color: maroon;
+				padding: 20px 0px;
+				align-items: center;
+				justify-content: center;
+			}
+			ul li {
+				cursor: pointer;
+				color: #fff;
+				font-weight: bold;
+				font-family: 'Courier New', Courier, monospace;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<header>
+				<nav>
+					<ul class="list__items">
+						<li>Recently Updated</li>
+						<li>Trending</li>
+						<li>Most Viewed</li>
+						<li>Top rated</li>
+					</ul>
+				</nav>
+			</header>
+			<h1>Anime</h1>
+
+			<section id="filter__section">
+				<h2 id="filter__title"></h2>
+				<div id="filter__container"></div>
+			</section>
+
+			<section>
+				<h2>Movies</h2>
+				<div id="anime__movies"></div>
+			</section>
+
+			<section>
+				<h2>Series</h2>
+
+				<div id="anime__series"></div>
+			</section>
+		</main>
+		<script src="./index.js"></script>
+	</body>
+</html>

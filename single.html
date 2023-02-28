@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>single</title>
+	</head>
+	<body>
+		<!-- HMTL -->
+
+		<main>
+			<h1 id="title"></h1>
+			<p></p>
+		</main>
+
+		<!-- End of HMTL -->
+
+		<!-- ###################### -->
+
+		<!-- Javascript Codes -->
+		<script>
+			// Get the query parameters from the URL
+			const queryParams = new URLSearchParams(window.location.search);
+
+			// Get the value of the "id" query parameter
+			const animeId = queryParams.get('id');
+			// function declaration for getting a single anime
+
+			const getSingleAnime = async () => {
+				// this takes in the id, that is the function will run whenever you get to this page.
+				try {
+					const res = await fetch(
+						`https://api.jikan.moe/v4/anime/${animeId}/full`
+					);
+					//Destructure the data from the API response
+					const { data } = await res.json();
+					const title = document.getElementById('title');
+					title.innerText = data.title;
+					title.style.transform = 'capitalize';
+				} catch (error) {
+					console.log(error);
+				}
+			};
+
+			getSingleAnime();
+		</script>
+		<!-- Javascript Codes -->
+	</body>
+</html>
