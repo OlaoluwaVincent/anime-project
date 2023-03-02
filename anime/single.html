@@ -4,14 +4,22 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="single__style.css" />
 		<title>single</title>
 	</head>
 	<body>
 		<!-- HMTL -->
 
 		<main>
+			<a href="./index.html" id="link">Home</a>
 			<h1 id="title"></h1>
-			<p></p>
+			<div class="container">
+				<div id="image"></div>
+				<div class="holder">
+					<p id="description"></p>
+					<div id="genres"></div>
+				</div>
+			</div>
 		</main>
 
 		<!-- End of HMTL -->
@@ -38,6 +46,28 @@
 					const title = document.getElementById('title');
 					title.innerText = data.title;
 					title.style.transform = 'capitalize';
+					console.log(data);
+					//genres
+					data.genres.forEach((genre) => {
+						const genresContainer =
+							document.getElementById('genres');
+						const genreHolder = document.createElement('ul');
+						genreHolder.innerHTML = `<ul class='listitems'><li>${genre.name}</li></ul>`;
+						genresContainer.appendChild(genreHolder);
+					});
+					// description
+					const descriptionHolder =
+						document.getElementById('description');
+					descriptionHolder.innerHTML = `
+						<p class="description">
+							${data.synopsis}
+							<span>${data.rating}</span>
+						</p>`;
+					// image
+					const imageContainer = document.getElementById('image');
+					const image = document.createElement('img');
+					image.src = data.images.webp.large_image_url;
+					imageContainer.appendChild(image);
 				} catch (error) {
 					console.log(error);
 				}
